@@ -3,8 +3,8 @@ import java.util.*;
 public class StatsLibrary
 {	
 	/**
-	 * 
-	 * @param list
+	 * take in an arraylist of integers and determine what the mean of the list is
+	 * @param arraylist of type integer
 	 * @return the mean of the arraylist
 	 */
 	public int mean(ArrayList<Integer> list)
@@ -22,8 +22,8 @@ public class StatsLibrary
 	}
 	
 	/**
-	 * 
-	 * @param list
+	 * take in an arraylist of integers and determine what the median is or return null if no median exists
+	 * @param arraylist of type integer
 	 * @return the median of the arraylist or null if none exists
 	 */
 	public Object median(ArrayList<Integer> list)
@@ -42,7 +42,7 @@ public class StatsLibrary
 	
 	/**
 	 * created using the help of stack overflow
-	 * @param list
+	 * @param arraylist of type integer
 	 * @return the mode of the set or null if non exists
 	 */
 	public Object mode(ArrayList<Integer> list)
@@ -87,7 +87,7 @@ public class StatsLibrary
 	}
 	
 	/**
-	 * 
+	 * take in an arraylist of integers and determine the standard deviation of the list
 	 * @param an arraylist of integers
 	 * @return return the standard deviation of the arraylist
 	 */
@@ -104,5 +104,49 @@ public class StatsLibrary
 		standardDeviation = Math.sqrt(sum/list.size());
 		
 		return standardDeviation;
+	}
+	
+	/**
+	 * find the number of combinations in a set given the size of the set and how many numbers are being taken
+	 * @param n, the size of the set
+	 * @param r, the number taken from the set
+	 * @return the total number of combinations of n and r
+	 */
+	public int combination(int n, int r)
+	{		
+		int permutation = 1;
+		int factorialR = 1;
+		
+		for(int i = n; i > n-r; i --)
+		{
+			permutation *= i;
+		}
+		
+		for(int i = r; i> 0; i --)
+		{
+			factorialR *= i;
+		}
+		
+		int combination = permutation/factorialR;
+		
+		return combination;
+	}
+	
+	/**
+	 * find the number of permutations in a set given the size of the set and how many numbers are being taken
+	 * @param n, the size of the set
+	 * @param r, the number taken from the set, without replacing
+	 * @return the number of permutations of n and r
+	 */
+	public int permutation(int n, int r)
+	{
+		int permutation= 1;
+		
+		for(int i = n; i > n-r; i --)
+		{
+			permutation *= i;
+		}
+		
+		return permutation;
 	}
 }

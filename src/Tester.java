@@ -9,9 +9,12 @@ public class Tester
 		
 		Random generator = new Random();
 		Scanner reader = new Scanner(System.in);
+		StatsLibrary tester = new StatsLibrary();
 		
+		System.out.println("The number of permutations are: " + tester.permutation(30, 3));
+		System.out.println("The number of combinations are: " + tester.combination(30, 3));
 		
-		System.out.println("Enter length of array");
+		/*System.out.println("Enter length of array");
 		int length = reader.nextInt();
 		
 		for(int i = 0; i < length; i++)
@@ -22,8 +25,6 @@ public class Tester
 		Collections.sort(nums);
 		
 		System.out.println(nums);
-		
-		StatsLibrary tester = new StatsLibrary();
 		
 		System.out.println("The mean of the set is: " + tester.mean(nums));
 		
