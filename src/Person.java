@@ -60,12 +60,13 @@ public class Person
 						check = true;
 						break;
 					}
-					if(check)
-					{
-						break;
-					}
+				}
+				if(check)
+				{
+					break;
 				}
 			}
+			check = false;
 		}
 		
 		/*for(int i = 0; i < sampleSize.size(); i ++)
