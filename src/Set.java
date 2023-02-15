@@ -4,8 +4,8 @@ public class Set<E>
 {	
 	/**
 	 * take in two sets and return all elements in both sets without repeating
-	 * @param set1, 
-	 * @param set2, 
+	 * @param set1
+	 * @param set2
 	 * @return the union of the two sets without repeating any elements
 	 */
 	public ArrayList<E> union(ArrayList<E> set1, ArrayList<E> set2)
@@ -16,16 +16,19 @@ public class Set<E>
 		{
 			unionAnswer.add(set1.get(i));
 		}
-		
 
 		for(int j = 0; j < set2.size(); j ++)
 		{
-			for(int i = 0; i < unionAnswer.size(); i++)
+			unionAnswer.add(set2.get(j));
+		}
+		
+		for(int i = 0; i < unionAnswer.size(); i++)
+		{
+			for(int j = i+1; j < unionAnswer.size(); j ++)
 			{
-				if(unionAnswer.get(i) == set2.get(j))
+				if(unionAnswer.get(i) == unionAnswer.get(j))
 				{
-					unionAnswer.remove(i);
-					unionAnswer.add(set2.get(j));
+					unionAnswer.remove(j);
 				}
 			}
 		}

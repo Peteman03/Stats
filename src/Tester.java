@@ -35,7 +35,7 @@ public class Tester
 		System.out.println("The standard deviation of the set is: " + tester.standardDeviation(nums));
 		
 		
-		/*ArrayList<Integer> s = new ArrayList<Integer>();
+		ArrayList<Integer> s = new ArrayList<Integer>();
 		
 		ArrayList<Integer> a = new ArrayList<Integer>();
 		
@@ -56,12 +56,12 @@ public class Tester
 		b.add(7);
 		b.add(9);
 		
-		Sets tester = new Sets();
+		Set setTester = new Set();
 		
-		System.out.println("The union of set A and set B is: " + tester.union(a, s));
+		System.out.println("The union of set A and set B is: " + setTester.union(a, b));
 		
-		System.out.println("The intersection of set A and set B is: " + tester.intersection(a, b));
+		System.out.println("The intersection of set A and set B is: " + setTester.intersection(a, b));
 		
-		System.out.println("The compliment of set B is: " + tester.compliment(s, b));*/
+		System.out.println("The compliment of set B is: " + setTester.compliment(s, b));*/
 	}
 }

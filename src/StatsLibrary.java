@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class StatsLibrary
@@ -41,9 +42,10 @@ public class StatsLibrary
 	}
 	
 	/**
+	 * take in an arraylist and see what item appears the most or null if multiple items appear the most 
 	 * created using the help of stack overflow
 	 * @param arraylist of type integer
-	 * @return the mode of the set or null if non exists
+	 * @return the mode of the set or null if none exists
 	 */
 	public Object mode(ArrayList<Integer> list)
 	{
@@ -112,41 +114,46 @@ public class StatsLibrary
 	 * @param r, the number taken from the set
 	 * @return the total number of combinations of n and r
 	 */
-	public int combination(int n, int r)
+	public BigInteger combination(int n, int r)
 	{		
-		int permutation = 1;
-		int factorialR = 1;
+
+		BigInteger permutation = permutation(n,r);
+		BigInteger factorialR = factorial(r);
 		
-		for(int i = n; i > n-r; i --)
-		{
-			permutation *= i;
-		}
-		
-		for(int i = r; i> 0; i --)
-		{
-			factorialR *= i;
-		}
-		
-		int combination = permutation/factorialR;
+		BigInteger combination = permutation.divide(factorialR);
 		
 		return combination;
 	}
 	
 	/**
 	 * find the number of permutations in a set given the size of the set and how many numbers are being taken
+	 * Using the factorial method
 	 * @param n, the size of the set
 	 * @param r, the number taken from the set, without replacing
 	 * @return the number of permutations of n and r
 	 */
-	public int permutation(int n, int r)
+	public BigInteger permutation(int n, int r)
 	{
-		int permutation= 1;
-		
-		for(int i = n; i > n-r; i --)
-		{
-			permutation *= i;
-		}
+		BigInteger permutation = factorial(n).divide(factorial(n-r));
 		
 		return permutation;
+	}
+	
+	/**
+	 * Method to find the factorial of a given number using BigIntegers
+	 * Looked up on GeeksForGeeks on how to properly utilize BigInteger methods
+	 * @param number
+	 * @return the factorial of the given number as a BigInteger
+	 */
+	public BigInteger factorial(int number)
+	{
+		BigInteger factorial = new BigInteger("1");
+		
+		for(int i = 2; i <= number; i++)
+		{
+			factorial = factorial.multiply(BigInteger.valueOf(i));
+		}
+	
+		return factorial;
 	}
 }
