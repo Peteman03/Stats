@@ -11,10 +11,22 @@ public class Tester
 		Scanner reader = new Scanner(System.in);
 		StatsLibrary tester = new StatsLibrary();
 		
-		System.out.println("The number of permutations are: " + tester.permutation(30, 3));
+		//System.out.println(tester.geometricDistribution(11, 2));
+		
+		GameShow game = new GameShow();
+		System.out.println("When the player doesn't change what door they pick they win " + game.noChange() + " precent of the time.");
+		System.out.println("When the player changes what door they pick they win " + game.change() + " precent of the time.");
+		
+		/*System.out.println("The binomial difference of the problem is: " + tester.binomialDistributionExact(4, .33, 3));
+		System.out.println("The binomial difference of the problem is: " + tester.binomialDistributionExact(4, .33, 4));
+		System.out.println("The binomial difference of the problem is: " + tester.binmoialDistribution(4, .33, 3, 4));
+		
+		
+		
+		/*System.out.println("The number of permutations are: " + tester.permutation(30, 3));
 		System.out.println("The number of combinations are: " + tester.combination(30, 3));
 		
-		/*System.out.println("Enter length of array");
+		System.out.println("Enter length of array");
 		int length = reader.nextInt();
 		
 		for(int i = 0; i < length; i++)
@@ -35,7 +47,7 @@ public class Tester
 		System.out.println("The standard deviation of the set is: " + tester.standardDeviation(nums));
 		
 		
-		ArrayList<Integer> s = new ArrayList<Integer>();
+		/*ArrayList<Integer> s = new ArrayList<Integer>();
 		
 		ArrayList<Integer> a = new ArrayList<Integer>();
 		

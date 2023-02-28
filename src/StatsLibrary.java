@@ -59,7 +59,7 @@ public class StatsLibrary
 			int popular = list.get(i);
 			counter1 = 0;
 			
-			for(int j = i+1; j <list.size(); j ++)
+			for(int j = i+1; j < list.size(); j ++)
 			{
 				if(list.get(j) == popular)
 				{
@@ -155,5 +155,96 @@ public class StatsLibrary
 		}
 	
 		return factorial;
+	}
+	
+	/**
+	 * Method to determine the binomial distribution of an exact y
+	 * @param n, number of trials
+	 * @param p, probability of success
+	 * @param y, number of success
+	 * @return the binomial distribution given n,p, and y
+	 */
+	public double binomialDistributionExact(int n, double p, int y)
+	{
+		double combination = combination(n,y).doubleValue();  
+		double pxy = Math.pow(p, y); 
+		double qxy = Math.pow(1-p, n-y);
+		
+		double answer = combination*pxy*qxy;
+		return answer;
+		
+	}
+	
+	/**
+	 * Method to determine the binomial distribution from y to max
+	 * @param n, number of trials
+	 * @param p, probability of success
+	 * @param y, number of success
+	 * @param max, max number of success
+	 * @return the binomial distribution given n,p,y, and max
+	 */
+	public double binmoialDistribution(int n, double p, int y, int max)
+	{
+		double answer = 0;
+		for(int i = y; i <= max; i ++)
+		{
+			answer += binomialDistributionExact(n,p,i);
+		}
+		return answer;
+	}
+	
+	/**
+	 * Method to determine the geometric distribution of an event occurring given the number of trials and probability of success
+	 * @param y the number of trials
+	 * @param p the probability of success
+	 * @return the geometric distribution of the event occurring first on trial y with probability p
+	 */
+	public double geometricDistribution(int y, double p)
+	{
+		return Math.pow(1-p, y-1) * p;
+	}
+	
+	/**
+	 * Method to determine the geometric distribution of an event occurring on or before the given trial with probability p
+	 * @param y the number of trials
+	 * @param p the probability of success
+	 * @return the geometric distribution of the event occurring on or before y with probability p
+	 */
+	public double geometricDistributionOnOrBefore(int y, double p)
+	{
+		return 1-Math.pow(1-p, y);
+	}
+	
+	/**
+	 * Method to determine the geometric distribution of an event occurring before the given trial with probability p
+	 * @param y the number of trials
+	 * @param p the probability of success
+	 * @return the geometric distribution of the event occurring before trial y with probability p
+	 */
+	public double geometricDistributionBefore(int y, double p)
+	{
+		return 1-Math.pow(1-p, y-1);
+	}
+	
+	/**
+	 * Method to determine the geometric distribution of an event occurring on or after the given trial with probability p
+	 * @param y the number of trials
+	 * @param p the probability of success
+	 * @return the geometric distribution of the event occurring on or after trial y with probability p
+	 */
+	public double geometricDistributionOnOrAfter(int y, double p)
+	{
+		return Math.pow(1-p, y-1);
+	}
+	
+	/**
+	 * Method to determine the geometric distribution of an event occurring after the given trial with the probability p
+	 * @param y the number of trials
+	 * @param p the probability of success
+	 * @return the geometric distribution of the event occurring after trial y with probability p
+	 */
+	public double geometricDistributionAfter(int y, double p)
+	{
+		return Math.pow(1-p, y);
 	}
 }
